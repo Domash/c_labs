@@ -20,7 +20,6 @@ typedef struct Singer {
 } Singer;
 
 int get_int() {
-
     int res;
     while(true) {
         if(scanf("%d", &res) && getchar() == '\n') {
@@ -33,7 +32,6 @@ int get_int() {
 }
 
 bool string_comparison(const char *str_a, const char *str_b) {
-    
     size_t len_a = strlen(str_a);
     size_t len_b = strlen(str_b);
     
@@ -45,13 +43,11 @@ bool string_comparison(const char *str_a, const char *str_b) {
 }
 
 void clear_buff() {
-
     fflush(stdin);
     fflush(stdout);
 }
 
 void read_name(Singer *new_singer) {
-    
     printf("1.Enter singer's name\n");
     clear_buff();
     gets(buff);
@@ -65,7 +61,6 @@ void read_name(Singer *new_singer) {
 }
 
 void read_albums(Singer *new_singer) {
-    
     clear_buff();
     printf("2.Numer of albums:\n");
     
@@ -86,7 +81,6 @@ void read_albums(Singer *new_singer) {
 }
 
 void read_tracks(Singer *new_singer) {
-
     clear_buff();
     printf("3.Numer of tracks:\n");
     
@@ -111,7 +105,6 @@ void read_tracks(Singer *new_singer) {
 }
 
 void read_information(Singer *new_singer) {
-    
     clear_buff();
     printf("Info");
     gets(buff);
@@ -125,7 +118,6 @@ void read_information(Singer *new_singer) {
 }
 
 void print_information(Singer *singer) {
-    
     printf("\nArtist: %s\n", singer -> name);
     printf("Info about artist: %s\n", singer -> information_abour_singer);
     printf("Number of albums = %d\n", singer -> number_of_albums);
@@ -144,7 +136,6 @@ void print_information(Singer *singer) {
 }
 
 void search_singer_by_name(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     clear_buff();
     printf("Enter singer's name\n");
     
@@ -167,7 +158,6 @@ void search_singer_by_name(int *size_of_list_of_singers, Singer ***list_of_singe
 }
 
 void search_singer_by_track(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     clear_buff();
     printf("Enter track\n");
     
@@ -193,7 +183,6 @@ void search_singer_by_track(int *size_of_list_of_singers, Singer ***list_of_sing
 }
 
 void search_singer_by_album(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     clear_buff();
     printf("Enter album\n");
     
@@ -218,7 +207,6 @@ void search_singer_by_album(int *size_of_list_of_singers, Singer ***list_of_sing
 }
 
 void add_singer(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     Singer *new_singer = (Singer*)malloc(sizeof(Singer));
     *list_of_singers = (Singer**)realloc(*list_of_singers, (*size_of_list_of_singers + 1) * sizeof(Singer*));
     
@@ -232,7 +220,6 @@ void add_singer(int *size_of_list_of_singers, Singer ***list_of_singers) {
 }
 
 void move_track_in_basket(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     clear_buff();
     printf("Enter track\n");
 
@@ -256,7 +243,6 @@ void move_track_in_basket(int *size_of_list_of_singers, Singer ***list_of_singer
 }
 
 void restore_track_from_basket(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     clear_buff();
     printf("Enter track\n");
     
@@ -279,7 +265,6 @@ void restore_track_from_basket(int *size_of_list_of_singers, Singer ***list_of_s
 }
 
 void get_report(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     printf("\nCurrent status:\n");
     printf("   Number of artist: %d\n", *size_of_list_of_singers);
 
@@ -305,7 +290,6 @@ void print_commands() {
 }
 
 void menu(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     bool ok = true;
     while(ok) {
         
@@ -345,7 +329,6 @@ void menu(int *size_of_list_of_singers, Singer ***list_of_singers) {
 }
 
 void clear_memory(int *size_of_list_of_singers, Singer ***list_of_singers) {
-    
     for(int i = 0; i < *size_of_list_of_singers; ++i) {
         
         for(int j = 0; j < (*list_of_singers[i]) -> number_of_albums; ++j) {
@@ -366,7 +349,7 @@ void clear_memory(int *size_of_list_of_singers, Singer ***list_of_singers) {
 }
 
 int main() {
-    
+
     Singer **list_of_singers = NULL;
     int size_of_list_of_singers = 0;
     menu(&size_of_list_of_singers, &list_of_singers);
